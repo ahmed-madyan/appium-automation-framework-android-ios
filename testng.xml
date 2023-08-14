@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression MobileBrowserTest Suite">
+    <test name="Regression MobileBrowserTest">
+        <classes>
+            <!--            <class name="TestIOSAlerts"/>-->
+            <!--            <class name="TestIOSLongPress"/>-->
+            <!--            <class name="TestIOSScrollWithGestures"/>-->
+            <!--            <class name="TestIOSScrollWithTouchActions"/>-->
+            <!--            <class name="TestIOSPicker"/>-->
+            <!--            <class name="TestIOSBundleID"/>-->
+<!--            <class name="TestIOSPhotosApp"/>-->
+        </classes>
+    </test>
+</suite>
