@@ -42,9 +42,9 @@ app: GeneralStoreApp # Custom id
 # Platforms object contains all the browser / device combinations you want to test on.
 # Entire list available here -> (https://www.browserstack.com/list-of-browsers-and-platforms/automate)
 platforms:
-  - platformName: ios
-    deviceName: iPhone 13
-    platformVersion: 15
+#  - platformName: ios
+#    deviceName: iPhone 13
+#    platformVersion: 15
 #  - platformName: ios
 #    deviceName: iPhone XS
 #    platformVersion: 15
