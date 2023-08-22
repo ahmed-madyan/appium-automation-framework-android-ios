@@ -11,9 +11,9 @@ accessKey: efFbRGj4yaxcVuPxyJKs
 # ======================
 # The following capabilities are used to set up reporting on BrowserStack:
 # Set 'projectName' to the name of your project. Example, Marketing Website
-projectName: UI Kit Catalog iOS App
+projectName: Appium Automation Framework Android iOS
 # Set `buildName` as the name of the job / testsuite being run
-buildName: UI Kit Catalog iOS App Sanity Check build No.
+buildName: Appium Automation Framework Android iOS App Sanity Check build No.
 # `buildIdentifier` is a unique id to differentiate every execution that gets appended to
 # buildName. Choose your buildIdentifier format from the available expressions:
 # ${BUILD_NUMBER} (Default): Generates an incremental counter with every execution
@@ -33,7 +33,8 @@ framework: testng
 # OR
 # app: 'bs://<app-id>' # App URL returned when uploading the app to BrowserStack manually
 # Visit https://www.browserstack.com/docs/app-automate/appium/set-up-tests/specify-app for more options
-app: UIKitCatalog # Custom id
+#app: UIKitCatalog # Custom id
+app: GeneralStoreApp # Custom id
 
 # =======================================
 # Platforms (Browsers / Devices to test)
@@ -50,6 +51,9 @@ platforms:
 #  - platformName: ios
 #    deviceName: iPhone 11
 #    platformVersion: 14
+  - deviceName: Samsung Galaxy S22 Ultra
+    osVersion: 12.0
+    platformName: android
 
 # =======================
 # Parallels per Platform
@@ -93,7 +97,8 @@ testObservability: true
 # ===================
 # Automation name and appium version
 # ===================
-automationName: XCuiTest
+automationName: UIAutomator2
+#automationName: XCuiTest
 appiumVersion: 2.0.1
 # ===================
 # Device settings
