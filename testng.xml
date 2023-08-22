@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Regression Mobile Test Suite">
+<suite name="Regression Mobile Test Suite" parallel="classes" thread-count="2">
     <test name="Android Regression Test">
-        <parameter name="platformName" value="Android"/> <!-- Android or iOS-->
+        <parameter name="PlatformName" value="Android"/> <!-- Android or iOS-->
         <classes>
             <class name="tests.android.TestFormPage"/>
         </classes>
     </test>
-    <!--    <test name="iOS Regression Test">-->
-    <!--        <parameter name="platformName" value="iOS"/> &lt;!&ndash; Android or iOS&ndash;&gt;-->
-    <!--        <classes>-->
-    <!--            <class name="tests.android.TestFormPage"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
+    <test name="iOS Regression Test">
+        <parameter name="PlatformName" value="iOS"/> <!-- Android or iOS-->
+        <classes>
+            <class name="tests.android.TestFormPage"/>
+        </classes>
+    </test>
 </suite>

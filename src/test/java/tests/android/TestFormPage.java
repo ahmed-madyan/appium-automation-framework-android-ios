@@ -12,7 +12,7 @@ public class TestFormPage extends DriverInitializer {
         new Form()
                 .validateTheToolBarTitle()
                 .validateFormElementsExist()
-                .fillForm();
+                .fillForm("Egypt", "Ahmed");
         new Products()
                 .validateTheToolBarTitle();
     }

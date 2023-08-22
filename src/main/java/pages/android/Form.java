@@ -35,19 +35,19 @@ public class Form {
         return this;
     }
 
-    public Form fillForm() {
+    public Form fillForm(String country, String name) {
         Elements.gestureActions()
                 .androidGestures()
                 .click(COUNTRY_LIST);
-        String country = ("//android.widget.TextView[@text='{country}']");
+        String countryElementLocated = ("//android.widget.TextView[@text='{country}']");
         Elements.mobileActions()
                 .androidActions()
-                .scrollIntoView("Egypt");
+                .scrollIntoView(country);
         Elements.gestureActions()
                 .androidGestures()
-                .click(AppiumBy.xpath(country.replace("{country}", "Egypt")));
+                .click(AppiumBy.xpath(countryElementLocated.replace("{country}", "Egypt")));
         Elements.elementActions()
-                .sendKeys(NAME_TEXT_BOX, "Ahmed");
+                .sendKeys(NAME_TEXT_BOX, name);
         Elements.gestureActions()
                 .androidGestures()
                 .click(LETS_SHOP_BUTTON);
