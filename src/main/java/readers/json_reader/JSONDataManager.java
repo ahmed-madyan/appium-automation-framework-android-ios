@@ -67,10 +67,13 @@ public class JSONDataManager {
      * @return Object data type, the desired JSON Object sent by @param filePath
      */
     public static Object getJSONData(String filePath, String keyPath, Types type) {
+        Object keyValue;
         System.out.println("Test data file path: " + filePath);
         System.out.println("Key path: " + keyPath);
         object = parseJSON(filePath);
-        return getObject(keyPath, type, object);
+        keyValue = getObject(keyPath, type, object);
+        System.out.println("Key value: " + keyValue);
+        return keyValue;
     }
 
     /**
