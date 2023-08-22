@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Regression Mobile Test Suite" parallel="classes" thread-count="2">
+<suite name="Regression Mobile Test Suite" parallel="classes">
     <test name="Android Regression Test">
         <parameter name="PlatformName" value="Android"/> <!-- Android or iOS-->
         <classes>
@@ -11,7 +11,7 @@
     <test name="iOS Regression Test">
         <parameter name="PlatformName" value="iOS"/> <!-- Android or iOS-->
         <classes>
-            <class name="tests.android.TestFormPage"/>
+            <class name="tests.ios.TestIOSAlerts"/>
         </classes>
     </test>
 </suite>
