@@ -1,9 +1,9 @@
 package readers.json_reader;
 
+import exceptions.Exceptions;
 import io.restassured.path.json.JsonPath;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import exceptions.Exceptions;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -67,8 +67,13 @@ public class JSONDataManager {
      * @return Object data type, the desired JSON Object sent by @param filePath
      */
     public static Object getJSONData(String filePath, String keyPath, Types type) {
+        Object keyValue;
+        System.out.println("Test data file path: " + filePath);
+        System.out.println("Key path: " + keyPath);
         object = parseJSON(filePath);
-        return getObject(keyPath, type, object);
+        keyValue = getObject(keyPath, type, object);
+        System.out.println("Key value: " + keyValue);
+        return keyValue;
     }
 
     /**

@@ -12,8 +12,8 @@ public class Alerts {
     private static final By TEXT_ENTRY_ALERT_Cancel_BUTTON = AppiumBy.accessibilityId("Cancel");
     private static final By CONFIRM_CANCEL_ALERT_BUTTON = AppiumBy.accessibilityId("Confirm / Cancel");
     private static final By CONFIRM_CANCEL_ALERT_MESSAGE_TEXT = AppiumBy.iOSNsPredicateString("name BEGINSWITH[c] 'A message'");
-    private static final By CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON = AppiumBy.accessibilityId("Cancel");
-    private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Confirm");
+    private static final By CONFIRM_CANCEL_ALERT_CONFIRM_BUTTON = AppiumBy.accessibilityId("Confirm");
+    private static final By CONFIRM_CANCEL_ALERT_CANCEL_BUTTON = AppiumBy.accessibilityId("Cancel");
 
     public Alerts openTextEntry() {
         Elements
@@ -59,11 +59,11 @@ public class Alerts {
         return this;
     }
 
-    public Alerts assertConfirmCancelAlertMessage() {
+    public Alerts assertConfirmCancelAlertMessage(String message) {
         Assertions
                 .hardAssert()
                 .elementDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT)
-                .elementTextToBe(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT, "A message should be a short, complete sentence.");
+                .elementTextToBe(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT, message);
         return this;
     }
 }
