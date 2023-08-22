@@ -10,7 +10,7 @@ public class PropertiesConfigurations {
     public static void setConfigProperties() {
         setExecutionAddress(PropertiesDataManager.getProperty("executionAddress", PropertiesDataManager.Capability.EXECUTION));
         setExecutionAddressConfig(PropertiesDataManager.getProperty("executionAddressConfig", PropertiesDataManager.Capability.EXECUTION));
-//        setPlatformName(PropertiesDataManager.getProperty("platformName", PropertiesDataManager.Capability.EXECUTION));
+        setPlatformName(PropertiesDataManager.getProperty("platformName", PropertiesDataManager.Capability.EXECUTION));
     }
 
     public static String getCapability(String capability, String filePath) {
