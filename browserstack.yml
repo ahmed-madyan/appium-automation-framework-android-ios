@@ -54,6 +54,18 @@ platforms:
   - deviceName: Samsung Galaxy S22 Ultra
     osVersion: 12.0
     platformName: android
+  - deviceName: Samsung Galaxy Tab S8
+    osVersion: 12.0
+    platformName: android
+  - deviceName: Samsung Galaxy S21 Ultra
+    osVersion: 11.0
+    platformName: android
+  - deviceName: Samsung Galaxy M32
+    osVersion: 11.0
+    platformName: android
+  - deviceName: Google Pixel 2
+    osVersion: 8.0
+    platformName: android
 
 # =======================
 # Parallels per Platform
