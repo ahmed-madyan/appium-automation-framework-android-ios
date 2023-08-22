@@ -59,11 +59,11 @@ public class Alerts {
         return this;
     }
 
-    public Alerts assertConfirmCancelAlertMessage() {
+    public Alerts assertConfirmCancelAlertMessage(String message) {
         Assertions
                 .hardAssert()
                 .elementDisplayed(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT)
-                .elementTextToBe(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT, "A message should be a short, complete sentence.");
+                .elementTextToBe(CONFIRM_CANCEL_ALERT_MESSAGE_TEXT, message);
         return this;
     }
 }
