@@ -12,7 +12,14 @@ public class DriverInitializer {
     protected void initializeDriver() {
         PropertiesConfigurations.setConfigProperties();
         System.out.println("Execution Platform: " + PropertiesConfigurations.getExecutionAddress());
-        setDriver(BrowserStackInitializer.browserStackInitialization());
+        switch (PropertiesConfigurations.getExecutionAddress()) {
+            case "local" -> setDriver(DriverLocalServiceInitializer.localServiceInitialization());
+            case "remote" -> setDriver(BrowserStackInitializer.browserStackInitialization());
+            default -> {
+                System.out.println("Kindly set the execution platform address.");
+                throw new RuntimeException();
+            }
+        }
     }
 
     @AfterClass(alwaysRun = true)
