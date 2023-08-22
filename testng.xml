@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Regression MobileBrowserTest Suite">
-    <test name="Regression MobileBrowserTest">
+<suite name="Regression Mobile Test Suite">
+    <test name="Android Regression Test">
+        <parameter name="platformName" value="Android"/> <!-- Android or iOS-->
         <classes>
-            <!--            <class name="TestIOSAlerts"/>-->
-            <!--            <class name="TestIOSLongPress"/>-->
-            <!--            <class name="TestIOSScrollWithGestures"/>-->
-            <!--            <class name="TestIOSScrollWithTouchActions"/>-->
-            <!--            <class name="TestIOSPicker"/>-->
-            <!--            <class name="TestIOSBundleID"/>-->
-<!--            <class name="TestIOSPhotosApp"/>-->
+            <class name="tests.android.TestFormPage"/>
         </classes>
     </test>
+    <!--    <test name="iOS Regression Test">-->
+    <!--        <parameter name="platformName" value="iOS"/> &lt;!&ndash; Android or iOS&ndash;&gt;-->
+    <!--        <classes>-->
+    <!--            <class name="tests.android.TestFormPage"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
 </suite>

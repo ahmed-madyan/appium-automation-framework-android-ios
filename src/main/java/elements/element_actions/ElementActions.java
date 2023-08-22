@@ -1,7 +1,6 @@
 package elements.element_actions;
 
 import driver.DriverManager;
-import elements.Elements;
 import elements.gesture_actions.GestureActions;
 import elements.mobile_actions.MobileActions;
 import elements.touch_actions.TouchActions;
@@ -19,9 +18,6 @@ public class ElementActions {
     public ElementActions() {
     }
 
-    public static Elements actions() {
-        return new Elements();
-    }
     public GestureActions gestureActions() {
         return new GestureActions();
     }
