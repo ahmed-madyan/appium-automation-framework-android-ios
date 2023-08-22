@@ -4,7 +4,7 @@ import driver.DriverInitializer;
 import org.testng.annotations.Test;
 import pages.ios.Alerts;
 import pages.ios.Home;
-import readers.properties_reader.PropertiesDataManager;
+import readers.json_reader.JSONDataManager;
 
 public class TestIOSAlerts extends DriverInitializer {
     private static final String testDataFilePath = ("src/test/resources/AlertViews.json");
@@ -16,12 +16,12 @@ public class TestIOSAlerts extends DriverInitializer {
                 .openTextEntry()
                 .cancelTextEntryAlert()
                 .openTextEntry()
-                .sendTextEntryAlert(PropertiesDataManager.getProperty("alert_view_text", testDataFilePath))
+                .sendTextEntryAlert(JSONDataManager.getJSONData(testDataFilePath, "alert_view_text", JSONDataManager.Types.STRING).toString())
                 .acceptTextEntryAlert()
                 .openTheConfirmCancelAlert()
                 .cancelTheConfirmCancelAlert()
                 .openTheConfirmCancelAlert()
-                .assertConfirmCancelAlertMessage(PropertiesDataManager.getProperty("confirm_cancel_alert_message", testDataFilePath))
+                .assertConfirmCancelAlertMessage(JSONDataManager.getJSONData(testDataFilePath, "confirm_cancel_alert_message", JSONDataManager.Types.STRING).toString())
                 .confirmTheConfirmCancelAlert();
     }
 }

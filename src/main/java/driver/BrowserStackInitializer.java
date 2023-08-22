@@ -30,7 +30,7 @@ public class BrowserStackInitializer {
 
     protected static AppiumDriver browserStackInitialization(String platformName) {
         BrowserStackInitializer.platformName = platformName;
-        System.out.println("TargetRemoteExecution: " + PropertiesConfigurations.getExecutionAddressConfig());
+        System.out.println("Execution Address Configuration: " + PropertiesConfigurations.getExecutionAddressConfig());
         switch (PropertiesConfigurations.getExecutionAddressConfig()) {
             case "manual" -> setupManually();
             case "yml" -> setupYML();

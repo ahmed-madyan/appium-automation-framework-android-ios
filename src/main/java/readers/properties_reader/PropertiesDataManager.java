@@ -3,7 +3,10 @@ package readers.properties_reader;
 import exceptions.Exceptions;
 import org.apache.commons.configuration.PropertiesConfiguration;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Arrays;
 import java.util.Properties;
 
@@ -14,7 +17,7 @@ public class PropertiesDataManager {
     private static final String EXECUTION_CAPABILITIES_PATH = ("/src/main/resources/properties/ExecutionPlatformCapabilities.properties");
     private static final String MOBILE_CAPABILITIES_PATH = ("/src/main/resources/properties/MobileCapabilities.properties");
 
-    private static Properties readProperties(String filePathContentRoot) {
+    private static Properties readProperty(String filePathContentRoot) {
         try {
             InputStream fileInputStream = new FileInputStream((PROJECT_PATH + filePathContentRoot));
             properties.load(fileInputStream);
@@ -26,7 +29,9 @@ public class PropertiesDataManager {
     }
 
     public static String getProperty(String key, String filePathContentRoot) {
-        return readProperties(filePathContentRoot).getProperty(key).trim();
+        System.out.println("Test data file path: " + PROJECT_PATH + filePathContentRoot);
+        System.out.println("Desired key: " + key);
+        return readProperty(filePathContentRoot).getProperty(key).trim();
     }
 
     public static void setProperty(String key, String value, String filePathContentRoot) {
@@ -47,7 +52,7 @@ public class PropertiesDataManager {
             case EXECUTION -> filePathContentRoot = EXECUTION_CAPABILITIES_PATH;
             case MOBILE -> filePathContentRoot = MOBILE_CAPABILITIES_PATH;
         }
-        return readProperties(filePathContentRoot).getProperty(key).trim();
+        return readProperty(filePathContentRoot).getProperty(key).trim();
     }
 
     public static void setProperty(String key, String value, Capability capability) {

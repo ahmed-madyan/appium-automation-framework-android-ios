@@ -4,7 +4,7 @@ import driver.DriverInitializer;
 import org.testng.annotations.Test;
 import pages.android.Form;
 import pages.android.Products;
-import readers.properties_reader.PropertiesDataManager;
+import readers.json_reader.JSONDataManager;
 
 public class TestFormPage extends DriverInitializer {
 
@@ -14,7 +14,7 @@ public class TestFormPage extends DriverInitializer {
         new Form()
                 .validateTheToolBarTitle()
                 .validateFormElementsExist()
-                .fillForm(PropertiesDataManager.getProperty("country", testDataFilePath), PropertiesDataManager.getProperty("name", testDataFilePath));
+                .fillForm(JSONDataManager.getJSONData(testDataFilePath, "country", JSONDataManager.Types.STRING).toString(), JSONDataManager.getJSONData(testDataFilePath, "name", JSONDataManager.Types.STRING).toString());
         new Products()
                 .validateTheToolBarTitle();
     }

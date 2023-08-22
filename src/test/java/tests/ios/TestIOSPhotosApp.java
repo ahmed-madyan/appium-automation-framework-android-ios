@@ -3,7 +3,7 @@ package tests.ios;
 import assertions.Assertions;
 import driver.DriverInitializer;
 import elements.Elements;
-import elements.gesture_actions.Direction;
+import elements.gesture_actions.GestureDirection;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
@@ -46,7 +46,7 @@ public class TestIOSPhotosApp extends DriverInitializer {
             Elements
                     .gestureActions()
                     .iosGestures()
-                    .swipe(Direction.LEFT);
+                    .swipe(GestureDirection.LEFT);
         }
     }
 
