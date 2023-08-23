@@ -1,15 +1,13 @@
 package driver;
 
 import io.appium.java_client.AppiumDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.*;
 import readers.properties_reader.PropertiesConfigurations;
 
 public class DriverInitializer {
-    private static AppiumDriver appiumDriver;
+    private static final ThreadLocal<AppiumDriver> appiumDriver = new ThreadLocal<>();
 
-    @BeforeClass(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     @Parameters("PlatformName")
     protected void initializeDriver(String platformName) {
         PropertiesConfigurations.setConfigProperties();
@@ -22,19 +20,21 @@ public class DriverInitializer {
                 throw new RuntimeException();
             }
         }
+        System.out.println("Session Id: " + getDriver().getSessionId());
     }
 
-    @AfterClass(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     protected void tearDownDriver() {
         //Tear the driver instance down
-        DriverManager.quitDriver();
+        DriverInitializer.appiumDriver.get().quit();
+        DriverInitializer.appiumDriver.remove();
     }
 
         protected static AppiumDriver getDriver () {
-            return DriverInitializer.appiumDriver;
+            return DriverInitializer.appiumDriver.get();
     }
 
         private static void setDriver (AppiumDriver appiumDriver){
-            DriverInitializer.appiumDriver = appiumDriver;
+            DriverInitializer.appiumDriver.set(appiumDriver);
     }
 }
