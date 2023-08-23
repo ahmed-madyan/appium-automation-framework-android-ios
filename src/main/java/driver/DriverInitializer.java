@@ -31,7 +31,7 @@ public class DriverInitializer {
     }
 
         protected static AppiumDriver getDriver () {
-            return appiumDriver;
+            return DriverInitializer.appiumDriver;
     }
 
         private static void setDriver (AppiumDriver appiumDriver){
