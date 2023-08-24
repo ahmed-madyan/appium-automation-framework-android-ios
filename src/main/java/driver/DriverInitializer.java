@@ -5,6 +5,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import readers.properties_reader.PropertiesConfigurations;
+import waits.Waits;
 
 public class DriverInitializer {
     public DriverInitializer(AppiumDriver appiumDriver) {

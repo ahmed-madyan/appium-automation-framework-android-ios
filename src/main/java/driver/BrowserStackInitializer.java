@@ -1,5 +1,6 @@
 package driver;
 
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
@@ -9,6 +10,7 @@ import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import readers.properties_reader.PropertiesConfigurations;
 import readers.properties_reader.PropertiesDataManager;
+import waits.Waits;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -104,6 +106,7 @@ public class BrowserStackInitializer {
         try {
             System.out.println("Android Desired Capabilities: " + desiredCapabilities);
             appiumDriver = new AndroidDriver(new URL(browserStack_ServerURL), desiredCapabilities);
+            Waits.fluentlyWait().visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/toolbar_title"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -139,6 +142,7 @@ public class BrowserStackInitializer {
         try {
             System.out.println("iOS Desired Capabilities: " + desiredCapabilities);
             appiumDriver = new IOSDriver(new URL(browserStack_ServerURL), desiredCapabilities);
+            Waits.fluentlyWait().visibilityOfElementLocated(AppiumBy.accessibilityId("Alert Views"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

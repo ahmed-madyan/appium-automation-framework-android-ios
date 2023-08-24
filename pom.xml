@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testng.android>testng_android.xml</testng.android>
         <testng.ios>testng_ios.xml</testng.ios>
-        <testng.parallel.execution>testng.xml</testng.parallel.execution>
+        <testng.parallel.execution>testng_parallel_execution.xml</testng.parallel.execution>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <appium.version>8.5.1</appium.version>
