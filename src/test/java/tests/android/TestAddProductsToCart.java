@@ -7,16 +7,17 @@ import pages.android.Form;
 import pages.android.Products;
 import readers.json_reader.JSONDataManager;
 
-public class TestFormPage extends DriverInitializer {
-    public TestFormPage() {
-        super(TestFormPage.androidDriver);
-    }
-
+public class TestAddProductsToCart extends DriverInitializer {
     static AndroidDriver androidDriver;
 
+    public TestAddProductsToCart() {
+        super(TestAddProductsToCart.androidDriver);
+    }
+
     private static final String testDataFilePath = ("src/test/resources/FormPage.json");
+
     @Test
-    public void testFormPage() {
+    public void testAddProductsToCart() {
         new Form()
                 .validateTheToolBarTitle()
                 .validateFormElementsExist()

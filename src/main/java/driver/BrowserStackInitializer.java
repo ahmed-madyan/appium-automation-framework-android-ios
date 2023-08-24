@@ -145,7 +145,7 @@ public class BrowserStackInitializer {
     }
 
     private static void setCommonDesiredCapabilities() {
-        browserstackOptions.put("buildIdentifier", new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Timestamp(System.currentTimeMillis())));
+        browserstackOptions.put("buildIdentifier", new SimpleDateFormat("yyyy-MM-dd HH").format(new Timestamp(System.currentTimeMillis())));
         /**********************************************************************************************************/
         /****************************************Set debugging options*********************************************/
         //Set debugging options

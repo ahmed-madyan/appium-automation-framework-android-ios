@@ -1,6 +1,7 @@
 package tests.ios;
 
 import driver.DriverInitializer;
+import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.Test;
 import pages.ios.Alerts;
 import pages.ios.Home;
@@ -9,6 +10,11 @@ import readers.json_reader.JSONDataManager;
 public class TestIOSAlerts extends DriverInitializer {
     private static final String testDataFilePath = ("src/test/resources/AlertViews.json");
 
+    public TestIOSAlerts() {
+        super(TestIOSAlerts.androidDriver);
+    }
+
+    static AndroidDriver androidDriver;
     @Test
     public void testIOSAlerts() {
         new Home().openAlertsPage();
