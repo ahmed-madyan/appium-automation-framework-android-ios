@@ -8,7 +8,7 @@
         <!-- PlatformName: [Android | iOS] -->
         <classes>
             <class name="tests.android.TestFormPage"/>
-            <class name="tests.android.TestFormPage"/>
+<!--            <class name="tests.android.TestFormPage"/>-->
             <class name="tests.android.TestAddProductsToCart"/>
         </classes>
     </test>

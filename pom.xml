@@ -35,7 +35,6 @@
         <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -94,7 +93,6 @@
         </dependency>
     </dependencies>
 
-
     <build>
         <plugins>
             <plugin>
@@ -103,9 +101,8 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testng.parallel.execution}</suiteXmlFile>
-                        <!--                        <suiteXmlFile>${testng.android}</suiteXmlFile>-->
-                        <!--                        <suiteXmlFile>${testng.ios}</suiteXmlFile>-->
+                        <suiteXmlFile>${testng.android}</suiteXmlFile>
+                        <suiteXmlFile>${testng.ios}</suiteXmlFile>
                     </suiteXmlFiles>
                     <!--suppress UnresolvedMavenProperty -->
                     <argLine>-javaagent:${com.browserstack:browserstack-java-sdk:jar}</argLine>
