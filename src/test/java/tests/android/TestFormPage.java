@@ -1,19 +1,11 @@
 package tests.android;
 
 import driver.DriverInitializer;
-import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.Test;
 import pages.android.Form;
-import pages.android.Products;
 import readers.json_reader.JSONDataManager;
 
 public class TestFormPage extends DriverInitializer {
-    public TestFormPage() {
-        super(TestFormPage.androidDriver);
-    }
-
-    static AndroidDriver androidDriver;
-
     private static final String testDataFilePath = ("src/test/resources/FormPage.json");
     @Test
     public void testFormPage() {

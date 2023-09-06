@@ -1,14 +1,19 @@
 package unit_test;
 
-import readers.properties_reader.PropertiesDataManager;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class UnitTest {
     public static void main(String[] args) {
-        String appPackageMainActivity = PropertiesDataManager.getProperty("mobile_appActivity", PropertiesDataManager.Capability.MOBILE);
-        System.out.println(PropertiesDataManager.getProperty("mobile_appActivity", PropertiesDataManager.Capability.MOBILE));
-        PropertiesDataManager.editProperty("mobile_appActivity", "edited", PropertiesDataManager.Capability.MOBILE);
-        System.out.println(PropertiesDataManager.getProperty("mobile_appActivity", PropertiesDataManager.Capability.MOBILE));
-        PropertiesDataManager.editProperty("mobile_appActivity", appPackageMainActivity, PropertiesDataManager.Capability.MOBILE);
-        System.out.println(PropertiesDataManager.getProperty("mobile_appActivity", PropertiesDataManager.Capability.MOBILE));
+        String date = ("2022-09-09T00:00:00Z");
+        System.out.println("Year: " + extractYearFromISODate(date) + "\nMonth: " + extractMonthFromISODate(date));
+    }
+
+    private static String extractYearFromISODate(String isoExtendedDate) {
+        return String.valueOf(LocalDateTime.parse(isoExtendedDate, DateTimeFormatter.ISO_DATE_TIME).getYear());
+    }
+
+    private static String extractMonthFromISODate(String isoExtendedDate) {
+        return LocalDateTime.parse(isoExtendedDate, DateTimeFormatter.ISO_DATE_TIME).getMonth().name();
     }
 }

@@ -8,7 +8,7 @@
     <artifactId>appium-automation-framework-android-ios</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>${project.groupId}:${project.artifactId}</name>
-    <url>https://maven.apache.org</url>
+    <url>https://github.com/ahmed-madyan/appium-automation-framework-android-ios</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,7 +19,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <appium.version>8.5.1</appium.version>
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
-        <selenium.version>4.11.0</selenium.version>
+        <selenium.version>4.12.1</selenium.version>
         <testng.version>7.7.1</testng.version>
         <browserstack-java-sdk.version>1.6.0</browserstack-java-sdk.version>
         <rest-assured.version>5.3.0</rest-assured.version>
@@ -66,6 +66,12 @@
             <artifactId>browserstack-java-sdk</artifactId>
             <version>${browserstack-java-sdk.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java -->
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>1.1.0</version>
+        </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -101,8 +107,9 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testng.android}</suiteXmlFile>
-                        <suiteXmlFile>${testng.ios}</suiteXmlFile>
+                        <!--                        <suiteXmlFile>${testng.android}</suiteXmlFile>-->
+                        <!--                        <suiteXmlFile>${testng.ios}</suiteXmlFile>-->
+                        <suiteXmlFile>${testng.parallel.execution}</suiteXmlFile>
                     </suiteXmlFiles>
                     <!--suppress UnresolvedMavenProperty -->
                     <argLine>-javaagent:${com.browserstack:browserstack-java-sdk:jar}</argLine>

@@ -5,15 +5,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import readers.properties_reader.PropertiesConfigurations;
-import waits.Waits;
 
 public class DriverInitializer {
-    public DriverInitializer(AppiumDriver appiumDriver) {
-        DriverInitializer.appiumDriver = appiumDriver;
-    }
-
-    static AppiumDriver appiumDriver;
-
     @BeforeClass(alwaysRun = true)
     @Parameters("PlatformName")
     protected void initializeDriver(String platformName) {
@@ -33,14 +26,14 @@ public class DriverInitializer {
     @AfterClass(alwaysRun = true)
     protected void tearDownDriver() {
         //Tear the driver instance down
-        DriverInitializer.appiumDriver.quit();
+        BrowserStackInitializer.appiumDriver.get().quit();
     }
 
         protected static AppiumDriver getDriver () {
-            return DriverInitializer.appiumDriver;
+            return BrowserStackInitializer.appiumDriver.get();
     }
 
         private static void setDriver (AppiumDriver appiumDriver){
-            DriverInitializer.appiumDriver = appiumDriver;
+            BrowserStackInitializer.appiumDriver.set(appiumDriver);
     }
 }

@@ -14,8 +14,6 @@ import waits.Waits;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class BrowserStackInitializer {
@@ -27,7 +25,7 @@ public class BrowserStackInitializer {
                     "@hub-cloud.browserstack.com/wd/hub");
     private static final DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
     private static final HashMap<String, Object> browserstackOptions = new HashMap<>();
-    private static AppiumDriver appiumDriver;
+    protected static ThreadLocal<AppiumDriver> appiumDriver = new ThreadLocal<>();
     private static String platformName;
 
     protected static AppiumDriver browserStackInitialization(String platformName) {
@@ -41,7 +39,7 @@ public class BrowserStackInitializer {
                 throw new RuntimeException();
             }
         }
-        return appiumDriver;
+        return appiumDriver.get();
     }
 
     private static void setupManually() {
@@ -56,7 +54,7 @@ public class BrowserStackInitializer {
             case "android" -> {
                 try {
                     MutableCapabilities capabilities = new UiAutomator2Options();
-                    appiumDriver = new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities);
+                    appiumDriver.set(new AndroidDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities));
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
                 }
@@ -64,7 +62,7 @@ public class BrowserStackInitializer {
             case "ios" -> {
                 try {
                     MutableCapabilities capabilities = new XCUITestOptions();
-                    appiumDriver = new IOSDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities);
+                    appiumDriver.set(new IOSDriver(new URL(PropertiesDataManager.getProperty("appiumServerURL", PropertiesDataManager.Capability.BROWSERSTACK)), capabilities));
                 } catch (MalformedURLException e) {
                     throw new RuntimeException(e);
                 }
@@ -105,7 +103,7 @@ public class BrowserStackInitializer {
         //Initialize the driver and launch the app
         try {
             System.out.println("Android Desired Capabilities: " + desiredCapabilities);
-            appiumDriver = new AndroidDriver(new URL(browserStack_ServerURL), desiredCapabilities);
+            appiumDriver.set(new AndroidDriver(new URL(browserStack_ServerURL), desiredCapabilities));
             Waits.fluentlyWait().visibilityOfElementLocated(AppiumBy.id("com.androidsample.generalstore:id/toolbar_title"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
@@ -141,7 +139,7 @@ public class BrowserStackInitializer {
         //Initialize the driver and launch the app
         try {
             System.out.println("iOS Desired Capabilities: " + desiredCapabilities);
-            appiumDriver = new IOSDriver(new URL(browserStack_ServerURL), desiredCapabilities);
+            appiumDriver.set(new IOSDriver(new URL(browserStack_ServerURL), desiredCapabilities));
             Waits.fluentlyWait().visibilityOfElementLocated(AppiumBy.accessibilityId("Alert Views"));
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
