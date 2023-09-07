@@ -12,8 +12,10 @@ import readers.properties_reader.PropertiesConfigurations;
 import readers.properties_reader.PropertiesDataManager;
 import waits.Waits;
 
+import javax.swing.text.DateFormatter;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class BrowserStackInitializer {
@@ -98,6 +100,7 @@ public class BrowserStackInitializer {
         /****************************************Organize tests****************************************************/
         //Organize tests
         browserstackOptions.put("buildName", PropertiesDataManager.getProperty("androidBuildName", PropertiesDataManager.Capability.BROWSERSTACK));
+        browserstackOptions.put("buildIdentifier", new SimpleDateFormat(new DateFormatter("yyyy")));
         /**********************************************************************************************************/
         setCommonDesiredCapabilities();
         //Initialize the driver and launch the app

@@ -1,7 +1,6 @@
 package tests.ios;
 
 import driver.DriverInitializer;
-import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.Test;
 import pages.ios.Alerts;
 import pages.ios.Home;

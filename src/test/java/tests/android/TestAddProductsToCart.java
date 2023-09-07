@@ -1,7 +1,6 @@
 package tests.android;
 
 import driver.DriverInitializer;
-import io.appium.java_client.android.AndroidDriver;
 import org.testng.annotations.Test;
 import pages.android.Form;
 import pages.android.Products;
@@ -17,7 +16,7 @@ public class TestAddProductsToCart extends DriverInitializer {
                 .validateTheToolBarTitle()
                 .validateFormElementsExist()
                 .fillForm(JSONDataManager.getJSONData(testDataFilePath, "country", JSONDataManager.Types.STRING).toString(), JSONDataManager.getJSONData(testDataFilePath, "name", JSONDataManager.Types.STRING).toString());
-//        new Products()
-//                .validateTheToolBarTitle();
+        new Products()
+                .validateTheToolBarTitle();
     }
 }
