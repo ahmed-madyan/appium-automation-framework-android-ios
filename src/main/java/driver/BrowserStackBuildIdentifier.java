@@ -33,9 +33,9 @@ public class BrowserStackBuildIdentifier {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless=new");
         WebDriver driver = new ChromeDriver(chromeOptions);
-        driver.get("https://www.browserstack.com/users/sign_in");
-        driver.findElement(By.id("user_email_login")).sendKeys("ahmed.madyan@vodafone.com");
-        driver.findElement(By.id("user_password")).sendKeys("BrowserStack@1");
+        driver.get(BrowserStack.SIGN_IN_URL.name());
+        driver.findElement(By.id("user_email_login")).sendKeys(BrowserStack.USERNAME.name());
+        driver.findElement(By.id("user_password")).sendKeys(BrowserStack.PASSWORD.name());
         driver.findElement(By.id("user_submit")).click();
         FluentWait<WebDriver> driverWait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(60))
