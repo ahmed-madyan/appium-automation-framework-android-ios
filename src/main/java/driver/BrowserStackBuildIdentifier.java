@@ -29,13 +29,12 @@ public class BrowserStackBuildIdentifier {
     }
 
     public static void generateBuildNumber() {
-        generateBuildIdentifierDateTime();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless=new");
         WebDriver driver = new ChromeDriver(chromeOptions);
-        driver.get(BrowserStack.SIGN_IN_URL.name());
-        driver.findElement(By.id("user_email_login")).sendKeys(BrowserStack.USERNAME.name());
-        driver.findElement(By.id("user_password")).sendKeys(BrowserStack.PASSWORD.name());
+        driver.get(BrowserStack.SIGN_IN_URL.getData());
+        driver.findElement(By.id("user_email_login")).sendKeys(BrowserStack.USERNAME.getData());
+        driver.findElement(By.id("user_password")).sendKeys(BrowserStack.PASSWORD.getData());
         driver.findElement(By.id("user_submit")).click();
         FluentWait<WebDriver> driverWait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(60))

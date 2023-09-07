@@ -8,9 +8,9 @@ public enum BrowserStack {
     USERNAME("ahmed.madyan@vodafone.com"),
     PASSWORD("BrowserStack@1");
 
-    private final String BrowserStack;
+    private final String data;
 
-    BrowserStack(String BrowserStack) {
-        this.BrowserStack = BrowserStack;
+    BrowserStack(String data) {
+        this.data = data;
     }
     }
