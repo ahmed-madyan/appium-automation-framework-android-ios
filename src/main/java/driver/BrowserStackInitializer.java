@@ -12,10 +12,8 @@ import readers.properties_reader.PropertiesConfigurations;
 import readers.properties_reader.PropertiesDataManager;
 import waits.Waits;
 
-import javax.swing.text.DateFormatter;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class BrowserStackInitializer {
@@ -99,8 +97,7 @@ public class BrowserStackInitializer {
         /**********************************************************************************************************/
         /****************************************Organize tests****************************************************/
         //Organize tests
-        browserstackOptions.put("buildName", PropertiesDataManager.getProperty("androidBuildName", PropertiesDataManager.Capability.BROWSERSTACK));
-        browserstackOptions.put("buildIdentifier", new SimpleDateFormat(new DateFormatter("yyyy")));
+        browserstackOptions.put("buildName", (PropertiesDataManager.getProperty("androidBuildName", PropertiesDataManager.Capability.BROWSERSTACK) + "  " + DriverInitializer.dateTime));
         /**********************************************************************************************************/
         setCommonDesiredCapabilities();
         //Initialize the driver and launch the app
@@ -136,7 +133,7 @@ public class BrowserStackInitializer {
         /**********************************************************************************************************/
         /****************************************Organize tests****************************************************/
         //Organize tests
-        browserstackOptions.put("buildName", PropertiesDataManager.getProperty("iOSBuildName", PropertiesDataManager.Capability.BROWSERSTACK));
+        browserstackOptions.put("buildName", (PropertiesDataManager.getProperty("iOSBuildName", PropertiesDataManager.Capability.BROWSERSTACK) + "  " + DriverInitializer.dateTime));
         /**********************************************************************************************************/
         setCommonDesiredCapabilities();
         //Initialize the driver and launch the app
@@ -151,6 +148,10 @@ public class BrowserStackInitializer {
 
     private static void setCommonDesiredCapabilities() {
 //        browserstackOptions.put("buildIdentifier", new SimpleDateFormat("yyyy-MM-dd HH").format(new Timestamp(System.currentTimeMillis())));
+        /**********************************************************************************************************/
+        /****************************************Organize tests****************************************************/
+        //Organize tests
+//        browserstackOptions.put("buildIdentifier", DriverInitializer.dateTime);
         /**********************************************************************************************************/
         /****************************************Set debugging options*********************************************/
         //Set debugging options
