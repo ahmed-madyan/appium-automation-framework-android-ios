@@ -97,7 +97,7 @@ public class BrowserStackInitializer {
         /**********************************************************************************************************/
         /****************************************Organize tests****************************************************/
         //Organize tests
-        browserstackOptions.put("buildName", (PropertiesDataManager.getProperty("androidBuildName", PropertiesDataManager.Capability.BROWSERSTACK) + "  " + DriverInitializer.dateTime));
+        browserstackOptions.put("buildName", (PropertiesDataManager.getProperty("androidBuildName", PropertiesDataManager.Capability.BROWSERSTACK) + " " + BrowserStackBuildIdentifier.getBuildNumber() + " at Date Time " + BrowserStackBuildIdentifier.getDateTime()));
         /**********************************************************************************************************/
         setCommonDesiredCapabilities();
         //Initialize the driver and launch the app
@@ -133,7 +133,7 @@ public class BrowserStackInitializer {
         /**********************************************************************************************************/
         /****************************************Organize tests****************************************************/
         //Organize tests
-        browserstackOptions.put("buildName", (PropertiesDataManager.getProperty("iOSBuildName", PropertiesDataManager.Capability.BROWSERSTACK) + "  " + DriverInitializer.dateTime));
+        browserstackOptions.put("buildName", (PropertiesDataManager.getProperty("iOSBuildName", PropertiesDataManager.Capability.BROWSERSTACK) + " " + BrowserStackBuildIdentifier.getBuildNumber() + " at Date Time " + BrowserStackBuildIdentifier.getDateTime()));
         /**********************************************************************************************************/
         setCommonDesiredCapabilities();
         //Initialize the driver and launch the app

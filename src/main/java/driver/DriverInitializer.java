@@ -7,16 +7,11 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import readers.properties_reader.PropertiesConfigurations;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-
 public class DriverInitializer {
-    protected static String dateTime = null;
-
     @BeforeSuite(alwaysRun = true)
-    public void generateBuildIdentifierDateTime() {
-        dateTime = (new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Timestamp(System.currentTimeMillis())));
-        System.out.println("Date time: " + dateTime);
+    public void generateBuildIdentifier() {
+        BrowserStackBuildIdentifier.generateBuildNumber();
+        BrowserStackBuildIdentifier.generateBuildIdentifierDateTime();
     }
 
     @BeforeClass(alwaysRun = true)
