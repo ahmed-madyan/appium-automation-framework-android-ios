@@ -8,16 +8,19 @@
     <artifactId>appium-automation-framework-android-ios</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>${project.groupId}:${project.artifactId}</name>
-    <url>https://maven.apache.org</url>
+    <url>https://github.com/ahmed-madyan/appium-automation-framework-android-ios</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <testng>testng.xml</testng>
+        <testng.android>testng_android.xml</testng.android>
+        <testng.ios>testng_ios.xml</testng.ios>
+        <testng.parallel.execution>testng_parallel_execution.xml</testng.parallel.execution>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <appium.version>8.5.1</appium.version>
         <surefire.plugin.version>3.0.0-M5</surefire.plugin.version>
-        <selenium.version>4.11.0</selenium.version>
+        <selenium.version>4.12.1</selenium.version>
+        <lombok.version>1.18.24</lombok.version>
         <testng.version>7.7.1</testng.version>
         <browserstack-java-sdk.version>1.6.0</browserstack-java-sdk.version>
         <rest-assured.version>5.3.0</rest-assured.version>
@@ -33,7 +36,6 @@
         <maven-surefire-plugin.version>3.1.0</maven-surefire-plugin.version>
     </properties>
 
-
     <dependencies>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -44,6 +46,12 @@
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
             <version>${appium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -64,6 +72,12 @@
             <groupId>com.browserstack</groupId>
             <artifactId>browserstack-java-sdk</artifactId>
             <version>${browserstack-java-sdk.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.browserstack/browserstack-local-java -->
+        <dependency>
+            <groupId>com.browserstack</groupId>
+            <artifactId>browserstack-local-java</artifactId>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -92,7 +106,6 @@
         </dependency>
     </dependencies>
 
-
     <build>
         <plugins>
             <plugin>
@@ -101,7 +114,9 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>${testng}</suiteXmlFile>
+                        <!--                        <suiteXmlFile>${testng.android}</suiteXmlFile>-->
+                        <!--                        <suiteXmlFile>${testng.ios}</suiteXmlFile>-->
+                        <suiteXmlFile>${testng.parallel.execution}</suiteXmlFile>
                     </suiteXmlFiles>
                     <!--suppress UnresolvedMavenProperty -->
                     <argLine>-javaagent:${com.browserstack:browserstack-java-sdk:jar}</argLine>

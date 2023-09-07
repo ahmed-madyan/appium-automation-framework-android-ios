@@ -8,7 +8,6 @@ import readers.json_reader.JSONDataManager;
 
 public class TestIOSAlerts extends DriverInitializer {
     private static final String testDataFilePath = ("src/test/resources/AlertViews.json");
-
     @Test
     public void testIOSAlerts() {
         new Home().openAlertsPage();

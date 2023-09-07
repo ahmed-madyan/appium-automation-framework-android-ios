@@ -3,10 +3,10 @@ package waits;
 import driver.DriverManager;
 import exceptions.Exceptions;
 import groovyjarjarantlr4.v4.runtime.misc.NotNull;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 
@@ -16,7 +16,7 @@ public class Fluent {
     public Fluent() {
     }
 
-    private static final FluentWait<WebDriver> driverWait = new FluentWait<WebDriver>(DriverManager.getDriverInstance())
+    private static final FluentWait<AppiumDriver> driverWait = new FluentWait<AppiumDriver>(DriverManager.getDriverInstance())
             .withTimeout(Duration.ofSeconds(60))
             .pollingEvery(Duration.ofSeconds(5))
             .ignoring(NoSuchElementException.class);
