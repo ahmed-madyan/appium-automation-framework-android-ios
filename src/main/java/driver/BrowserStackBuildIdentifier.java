@@ -25,7 +25,7 @@ public class BrowserStackBuildIdentifier {
     public static String dateTime;
 
     public static void generateBuildIdentifierDateTime() {
-        setDateTime((new SimpleDateFormat("yyyy-MM-dd HH:mm").format(new Timestamp(System.currentTimeMillis()))));
+        setDateTime((new SimpleDateFormat("dd-MM-yyyy HH:mm").format(new Timestamp(System.currentTimeMillis()))));
     }
 
     public static void generateBuildNumber() {
