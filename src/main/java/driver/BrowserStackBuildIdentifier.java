@@ -46,7 +46,11 @@ public class BrowserStackBuildIdentifier {
         String[] code = StringUtils.substringsBetween(firstBuild, "No.", "at");
         String previousBuildNumber = Arrays.toString(code).replaceAll("[\\[\\]]", "");
         int buildInt = Integer.parseInt(previousBuildNumber.trim());
-        setBuildNumber(buildInt + 1);
+        if (buildInt == 0) {
+            setBuildNumber(0);
+        } else {
+            setBuildNumber(buildInt + 1);
+        }
         driver.quit();
     }
 }
